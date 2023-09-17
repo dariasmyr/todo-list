@@ -4,12 +4,13 @@ import {useStore} from "../../stores/show-task.store.ts";
 import {Task} from "../task/task.component.tsx";
 
 export function TaskList() {
-    const { tasks, addTask } = useStore();
+    const { tasks, addTask, removeAllTasks } = useStore();
 
     return (
         <TaskContainer>
             <h1>Task List</h1>
-            <ButtonComponent title={'Add Task'} bgColor={'blue'} color={'black'} onClick={() => addTask}/>
+            <ButtonComponent title={'Add Task'} bgColor={'blue'} color={'black'} onClick={() => addTask({ id: 1, name: 'My Task', description: 'My description', status: 'active' })}/>
+            <ButtonComponent title={'Remove All Tasks'} bgColor={'red'} color={'white'} onClick={removeAllTasks}/>
             {tasks.map((task, index) => (
                 // For each task, we render a Task component
                 <Task key={index} task={task}/>

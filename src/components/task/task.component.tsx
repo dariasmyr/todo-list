@@ -29,7 +29,11 @@ export function Task({ task }: TaskProps) {
     return (
         <TaskContainer>
             <h1>{task.name}</h1>
-            <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'red'} color={'white'}/>
+            <p>{task.id}</p>
+            <p>{task.name}</p>
+            <p>{task.description}</p>
+            <p>{task.status}</p>
+            <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'green'} color={'white'}/>
             {showMessage && <MessageComponent title={'Task Description'} />}
         </TaskContainer>
     )
