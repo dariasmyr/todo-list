@@ -9,7 +9,7 @@ export function TaskList() {
     return (
         <TaskContainer>
             <h1>Task List</h1>
-            <ButtonComponent title={'Add Task'} bgColor={'blue'} color={'black'} onClick={() => addTask({ id: 1, name: 'My Task', description: 'My description', status: 'active' })}/>
+            <ButtonComponent title={'Add Task'} bgColor={'lightblue'} color={'black'} onClick={() => addTask({ id: 1, name: 'My Task', description: 'My description', status: 'active' })}/>
             <ButtonComponent title={'Remove All Tasks'} bgColor={'red'} color={'white'} onClick={removeAllTasks}/>
             {tasks.map((task, index) => (
                 // For each task, we render a Task component

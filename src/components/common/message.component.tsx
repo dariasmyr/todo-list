@@ -1,22 +1,17 @@
 import styled from "styled-components";
-import {ChangeEvent} from "react";
-import {useTextStore} from "../../stores/text.store.ts";
-
 
 interface MessageComponentProps {
     title: string;
+    text: string;
+    onTextChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function MessageComponent (props: MessageComponentProps) {
-    const {text, setText} = useTextStore();
-    const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        setText(event.target.value);
-    };
 
     return (
         <MessageContainer>
             <h1>{props.title}</h1>
-            <input type="text" value={text} onChange={handleTextChange} />
+            <input type="text" value={props.text} onChange={props.onTextChange} />
         </MessageContainer>
     )
 }
