@@ -18,11 +18,15 @@ export function ButtonComponent ({ title, onClick, color = 'black', bgColor = 'g
 
 const ButtonContainer = styled.button<ButtonComponentProps>`
   background-color: ${({bgColor}) => bgColor || 'grey'};
-  padding: 5px;
+  padding: 5px 10px;
+  height: 30px;
   margin: 10px 0;
   border-radius: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,.1);
   color: ${({color}) => color || 'black'};
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
