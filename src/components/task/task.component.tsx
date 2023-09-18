@@ -41,13 +41,18 @@ export function Task({ task }: TaskProps) {
         setIsDone(true);
     }
 
+    const handleClickUndone = () => {
+        setIsDone(false);
+    }
+
     return (
         <TaskContainer isDone={isDone}>
             <h1>{task.name}</h1>
             {!isDone && <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'green'} color={'white'}/>}
-            {showMessage && <MessageComponent title={'Task Description'} text={messageText} onTextChange={handleTextChange} />}
+            {!isDone && showMessage && <MessageComponent title={'Task Description'} text={messageText} onTextChange={handleTextChange} />}
             {!isDone && <ButtonComponent title={'Save'} onClick={handleSave} bgColor={'blue'} color={'white'}/>}
             <ButtonComponent title={'Done'} onClick={handleClickDone} bgColor={'yellow'} color={'black'}/>
+            {isDone && <ButtonComponent title={'Reopen'} onClick={handleClickUndone} bgColor={'darkpuple'} color={'white'}/>}
             <p>Saved Text:</p>
             <ul>
                 {savedText.map((text, index) =>
