@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {ButtonComponent} from "../common/button.component";
-import {MessageComponent} from "../common/message.component.tsx";
+import {TextInputComponent} from "../common/text-input.component.tsx";
 import {useState} from "react";
 
 export type Task = {
@@ -21,12 +21,14 @@ export type TaskProps = {
 };
 
 export function Task({ task }: TaskProps) {
-    const [showMessage, setToggleMessage] = useState(false);
+    const [showTaskDescription, setTaskDescription] = useState(false);
+    const [showTasks, setTasks] = useState(false);
     const [messageText, setMessageText] = useState("");
     const [savedText, setSavedText] = useState<Array<string>>([]);
     const [isDone, setIsDone] = useState(false);
     const onClick = () => {
-        setToggleMessage(!showMessage);
+        setTaskDescription(!showTaskDescription);
+        setTasks(!showTasks);
     }
 
     const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -48,17 +50,17 @@ export function Task({ task }: TaskProps) {
     return (
         <TaskContainer isDone={isDone}>
             <h1>{task.name}</h1>
-            {!isDone && <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'green'} color={'white'}/>}
-            {!isDone && showMessage && <MessageComponent title={'Task Description'} text={messageText} onTextChange={handleTextChange} />}
-            {!isDone && <ButtonComponent title={'Save'} onClick={handleSave} bgColor={'blue'} color={'white'}/>}
-            <ButtonComponent title={'Done'} onClick={handleClickDone} bgColor={'yellow'} color={'black'}/>
-            {isDone && <ButtonComponent title={'Reopen'} onClick={handleClickUndone} bgColor={'darkpuple'} color={'white'}/>}
-            <p>Saved Text:</p>
-            <ul>
-                {savedText.map((text, index) =>
-                    <li key={index}>{text}</li>
-                )}
-            </ul>
+            {!isDone && <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'#32a852'} color={'white'}/>}
+            {!isDone && showTaskDescription && <TextInputComponent title={'Task Description'} text={messageText} onTextChange={handleTextChange} />}
+            {!isDone && <ButtonComponent title={'Save'} onClick={handleSave} bgColor={'#273c75'} color={'white'}/>}
+            <ButtonComponent title={'Done'} onClick={handleClickDone} bgColor={'#fbc531'} color={'black'}/>
+            {isDone && <ButtonComponent title={'Reopen'} onClick={handleClickUndone} bgColor={'#833471'} color={'white'}/>}
+            { showTasks && <><p>Tasks:</p>
+                <ul>
+                    {savedText.map((text, index) => <li key={index}>{text}</li>
+                    )}
+                </ul>
+            </> }
         </TaskContainer>
     )
 }

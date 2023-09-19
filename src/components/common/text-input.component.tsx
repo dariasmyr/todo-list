@@ -6,7 +6,7 @@ interface MessageComponentProps {
     onTextChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function MessageComponent (props: MessageComponentProps) {
+export function TextInputComponent (props: MessageComponentProps) {
 
     return (
         <MessageContainer>
@@ -17,7 +17,7 @@ export function MessageComponent (props: MessageComponentProps) {
 }
 
 const MessageContainer = styled.div`
-  background-color: #805AD5; // используем более яркий оттенок пурпурного
+  background-color: #B2DFDB; // используем более яркий оттенок пурпурного
   padding: 30px;
   margin-bottom: 10px;
   border-radius: 30px;
