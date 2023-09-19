@@ -50,11 +50,11 @@ export function Task({ task }: TaskProps) {
     return (
         <TaskContainer isDone={isDone}>
             <h1>{task.name}</h1>
-            {!isDone && <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'#32a852'} color={'white'}/>}
+            {!isDone && <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'#BDBDBD'} color={'#212121'}/>}
             {!isDone && showTaskDescription && <TextInputComponent title={'Task Description'} text={messageText} onTextChange={handleTextChange} />}
-            {!isDone && <ButtonComponent title={'Save'} onClick={handleSave} bgColor={'#273c75'} color={'white'}/>}
-            <ButtonComponent title={'Done'} onClick={handleClickDone} bgColor={'#fbc531'} color={'black'}/>
-            {isDone && <ButtonComponent title={'Reopen'} onClick={handleClickUndone} bgColor={'#833471'} color={'white'}/>}
+            {!isDone && <ButtonComponent title={'Save'} onClick={handleSave} bgColor={'#DCEDC8'} color={'#212121'}/>}
+            {!isDone && <ButtonComponent title={'Done'} onClick={handleClickDone} bgColor={'#9E9E9E'} color={'#212121'}/> }
+            {isDone && <ButtonComponent title={'Reopen'} onClick={handleClickUndone} bgColor={'#757575'} color={'#212121'}/>}
             { showTasks && <><p>Tasks:</p>
                 <ul>
                     {savedText.map((text, index) => <li key={index}>{text}</li>
@@ -67,7 +67,7 @@ export function Task({ task }: TaskProps) {
 
 
 const TaskContainer = styled.div<{ isDone: boolean }>`
-  background-color: ${props => props.isDone ? '#82a2d2' : '#fff'};
+  background-color: ${props => props.isDone ? '#689F38' : '#8BC34A'};
   padding: 40px;
   margin: 20px 0; // увеличиваем отступы для лучшей визуальной разделенности
   border-radius: 30px; // уменьшаем радиус скругления для более современного вида

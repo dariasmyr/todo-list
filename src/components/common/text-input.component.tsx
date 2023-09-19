@@ -17,7 +17,7 @@ export function TextInputComponent (props: MessageComponentProps) {
 }
 
 const MessageContainer = styled.div`
-  background-color: #B2DFDB; // используем более яркий оттенок пурпурного
+  background-color: #9E9E9E;
   padding: 30px;
   margin-bottom: 10px;
   border-radius: 30px;

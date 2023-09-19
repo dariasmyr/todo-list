@@ -17,8 +17,8 @@ export function TaskList() {
         <TaskContainer>
             <h1>Task List</h1>
             <TextInputComponent title={'Enter your credentials'} text={text} onTextChange={handleTextChange}/>
-            <ButtonComponent title={'Add Task'} bgColor={'lightblue'} color={'black'} onClick={() => addTask({ id: Math.random(), name: text || 'My Task', description: 'My description', status: 'active' })}/>
-            <ButtonComponent title={'Remove All Tasks'} bgColor={'red'} color={'white'} onClick={removeAllTasks}/>
+            <ButtonComponent title={'Add Task'} bgColor={'#DCEDC8'} color={'#212121'} onClick={() => addTask({ id: Math.random(), name: text || 'My Task', description: 'My description', status: 'active' })}/>
+            <ButtonComponent title={'Remove All Tasks'} bgColor={'#BDBDBD'} color={'#212121'} onClick={removeAllTasks}/>
             {tasks.map((task, index) => (
                 // For each task, we render a Task component
                 <Task key={index} task={task}/>
@@ -28,7 +28,7 @@ export function TaskList() {
 }
 
 const TaskContainer = styled.div`
-    background-color: #f4f4f4; // более светлый серый цвет
+    background-color: #f4f4f4;
     padding: 40px;
     margin: 20px 0; // увеличиваем отступы для лучшей визуальной разделенности
     border-radius: 30px; // уменьшаем радиус скругления для более современного вида
