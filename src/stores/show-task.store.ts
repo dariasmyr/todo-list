@@ -1,5 +1,5 @@
 import {create} from "zustand";
-import {Task} from "../components/task/task.component.tsx";
+import {Task} from "../components/task/task.component";
 
 type Store = {
     tasks: Task[];

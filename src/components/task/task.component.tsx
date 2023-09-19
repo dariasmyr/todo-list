@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {ButtonComponent} from "../common/button.component";
-import {TextInputComponent} from "../common/text-input.component.tsx";
+import {TextInputComponent} from "../common/text-input.component";
 import {useState} from "react";
 
 export type Task = {

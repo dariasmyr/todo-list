@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import {ButtonComponent} from "../common/button.component.tsx";
-import {useStore} from "../../stores/show-task.store.ts";
-import {Task} from "../task/task.component.tsx";
-import {TextInputComponent} from "../common/text-input.component.tsx";
-import {useTextStore} from "../../stores/text.store.ts";
+import {ButtonComponent} from "../common/button.component";
+import {useStore} from "../../stores/show-task.store";
+import {Task} from "../task/task.component";
+import {TextInputComponent} from "../common/text-input.component";
+import {useTextStore} from "../../stores/text.store";
 
 export function TaskList() {
     const { tasks, addTask, removeAllTasks } = useStore();
