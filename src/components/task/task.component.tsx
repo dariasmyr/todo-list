@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {ButtonComponent} from "../common/button.component";
 import {TextInputComponent} from "../common/text-input.component";
 import {useState} from "react";
+import {useStore} from "../../stores/show-task.store.ts";
 
 export type Task = {
     id: number;
@@ -26,7 +27,12 @@ export function Task({ task }: TaskProps) {
     const [messageText, setMessageText] = useState("");
     const [savedText, setSavedText] = useState<Array<string>>([]);
     const [isDone, setIsDone] = useState(false);
-    const onClick = () => {
+    const { removeTask } = useStore();
+
+    const handleRemoveTask = () => {
+        removeTask(task.id);
+    }
+    const handleTaskDescription = () => {
         setTaskDescription(!showTaskDescription);
         setTasks(!showTasks);
     }
@@ -50,7 +56,8 @@ export function Task({ task }: TaskProps) {
     return (
         <TaskContainer isDone={isDone}>
             <h1>{task.name}</h1>
-            {!isDone && <ButtonComponent title={'Describe Task'} onClick={onClick} bgColor={'#BDBDBD'} color={'#212121'}/>}
+            <p>{task.id}</p>
+            {!isDone && <ButtonComponent title={'Describe Task'} onClick={handleTaskDescription} bgColor={'#BDBDBD'} color={'#212121'}/>}
             {!isDone && showTaskDescription && <TextInputComponent title={'Task Description'} text={messageText} onTextChange={handleTextChange} />}
             {!isDone && <ButtonComponent title={'Save'} onClick={handleSave} bgColor={'#DCEDC8'} color={'#212121'}/>}
             {!isDone && <ButtonComponent title={'Done'} onClick={handleClickDone} bgColor={'#9E9E9E'} color={'#212121'}/> }
@@ -61,6 +68,7 @@ export function Task({ task }: TaskProps) {
                     )}
                 </ul>
             </> }
+            <ButtonComponent title={'Remove Task'} onClick={handleRemoveTask} bgColor={'#F44336'} color={'#212121'}/>
         </TaskContainer>
     )
 }
